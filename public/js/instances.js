@@ -6,6 +6,8 @@ export let SAURON = new CLASSES.Boss("Sauron", 20, 120);
 export let CHRONOS = new CLASSES.Boss("Chronos", 30, 100);
 export let LILITH = new CLASSES.Boss("Lilith", 15, 150);
 
+export let boss_list = [SAURON, CHRONOS, LILITH];
+
 //! DONE
 /********************************************************************/
 
@@ -48,7 +50,6 @@ export let Postures = ["attack", "defense"];
 export let WARRIOR = new CLASSES.Hero("warrior","",[],0);
 export let MAGE = new CLASSES.Hero("mage","",[],0);
 export let ARCHER = new CLASSES.Hero("archer","",[],0);
-
 
 export let max_hp = 150;
 export let max_attack = 120;

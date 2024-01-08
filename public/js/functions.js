@@ -25,6 +25,21 @@ notez qu'il faut pouvoir répartir de tel sorte à ce que chaque héros est au m
 
 Après avoir créer les 3 héros, l'ordinateur choisira (aléatoirement) parmi les 3 boss crées lequel sera dans le combat.
  */
+
+/**     Get random boss 
+ * 
+ * @param {*} list_boss : array of boss
+ * @returns             : a boss
+ */
+export function random_boss(list_boss) {
+    let boss_index =  Math.floor(Math.random() * list_boss.length);
+    console.log(`Your boss will be ${list_boss[boss_index]}`);
+    return list_boss[boss_index]
+}
+
+
+
+
 export function create_character() {
     alert("Now, your are going to create all your team ! :) ");
     console.log("Don't forget that you can put " + INSTANCES.max_hp + "health for all your team !");
@@ -49,19 +64,19 @@ export function create_character() {
         console.log(`You ${element.id_name} is on ${element.attack_position} mode`);
 
         // choice health of team mate
-        health_team_mate = prompt(`You have ${max_of_health} healt max to give to your ${element.id_name}, \nhow many hp do you to give to him ?`);
+        health_team_mate = prompt(`You have ${max_of_health} point of health max to give to your ${element.id_name}, \nhow many hp do you to give to him ?`);
         element.healt_point = health_team_mate;
         console.log(`You ${element.id_name} has ${element.healt_point} hp`);
         max_of_health -= health_team_mate;
 
         // choice attack point of team mate
-        attack_team_mate = prompt(`You have ${max_of_attack} healt max to give to your ${element.id_name}, \nhow many attack power do you to give to him ?`);
+        attack_team_mate = prompt(`You have ${max_of_attack} point of attack max to give to your ${element.id_name}, \nhow many attack power do you to give to him ?`);
         element.attack_power = attack_team_mate;
         max_of_attack -= attack_team_mate;
         console.log(`You ${element.id_name} has ${element.attack_power} attack`);
 
 
     });
-    console.log(INSTANCES.team);
+    console.table(INSTANCES.team);
 
 }

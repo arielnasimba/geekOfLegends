@@ -17,10 +17,10 @@ export class Boss {
      * @param {*} attack_power  : point of attack Boss
      * @param {*} healt_point   : health point of Boss
      */
-    constructor ( name, attack_power, healt_point){
+    constructor ( name, attack_power, health_point){
         this.name = name;
         this.attack_power = attack_power;
-        this.healt_point = healt_point;
+        this.health_point = health_point;
     }
 
 }
@@ -41,9 +41,9 @@ un héro qui se fait attaquer par le boss alors que sa posture de combat est en 
  */ 
 
 export class Hero extends Boss{
-    constructor (id_name, name,attack_position ,attack_power ,healt_point){
+    constructor (id_name, name,attack_position ,attack_power ,health_point){
 
-        super(name, attack_power, healt_point);
+        super(name, attack_power, health_point);
         this.id_name = id_name;
         this.attack_position = attack_position;
     }

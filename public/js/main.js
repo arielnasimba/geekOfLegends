@@ -107,13 +107,20 @@ notez qu'il faut pouvoir répartir de tel sorte à ce que chaque héros est au m
 Après avoir créer les 3 héros, l'ordinateur choisira (aléatoirement) parmi les 3 boss crées lequel sera dans le combat.
  */
 
+// FUNCTIONS.random_boss(INSTANCES.boss_list);
+
+let boss = FUNCTIONS.random_boss(INSTANCES.boss_list);
+// console.log(boss);
+
 function game() {
     
     FUNCTIONS.create_character();
 
+    let boss_game = FUNCTIONS.random_boss(INSTANCES.boss_list);
+
 }
 
-game();
+// game();
  
 // console.log(INSTANCES.team);
 
