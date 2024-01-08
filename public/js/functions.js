@@ -110,7 +110,19 @@ export function check_team_is_alive(list_team) {
 
     return team_is_alive;
 }
-
+/**     check if current boss is alive
+ * @param {*} current_boss  : boss to check his/her health point is below 0
+ * @returns                 : boolean true is still alive; false if boss health point below 0
+ */
 export function check_boss_is_alive(current_boss) {
     return current_boss.health_point > 0;
+}
+
+/**     check if current boss is under 20% of his/her health point
+ * @param {*} current_boss  : boss to check his/her health point is below 20 %
+ * @returns                 : boolean true is still alive; false if boss health point below 20%
+ */
+export function check_boss_under_20(current_boss) {
+    return current_boss.health_point > (current_boss.health_point * 0.2);
+
 }
