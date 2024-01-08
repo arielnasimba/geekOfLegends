@@ -74,6 +74,14 @@ Les attaques coûtent 2 flèches.
 Si L'archer ne possède pas assez de flèche lorsque il doit attaquer, il récupère 6 flèches au lieu d'infliger des dégâts.
  */ 
 
+
+// console.log(INSTANCES.WARRIOR);
+// console.log(INSTANCES.MAGE);
+// console.log(INSTANCES.ARCHER);
+
+//! DONE
+/********************************************************************/
+
  
 
 /* Déroulement du jeu

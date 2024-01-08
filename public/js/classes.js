@@ -48,6 +48,10 @@ export class Hero extends Boss{
     }
 }
 
+//! DONE
+/********************************************************************/
+
+
 // export class Patient {
 //     /**     Create a object Patient
 //      * 
