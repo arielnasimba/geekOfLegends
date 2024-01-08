@@ -33,8 +33,8 @@ Après avoir créer les 3 héros, l'ordinateur choisira (aléatoirement) parmi l
  */
 export function random_boss(list_boss) {
     let boss_index =  Math.floor(Math.random() * list_boss.length);
-    console.log(`Your boss will be ${list_boss[boss_index]}`);
-    return list_boss[boss_index]
+    // console.log(`Your boss will be ${list_boss[boss_index].name}`);
+    return list_boss[boss_index];
 }
 
 
@@ -77,6 +77,40 @@ export function create_character() {
 
 
     });
-    console.table(INSTANCES.team);
+    // console.table(INSTANCES.team);
 
+}
+
+/* Un héro ne peut pas faire d'action si il est mort (point de vie à 0)
+
+Ceci se répète jusque à ce que :
+
+tout les héros meurent (perdu)
+ou que le boss meurt (gagner)
+ou que les points de vie du boss soient en dessous de 20% (énigme pour les boss)
+ */
+export function check_team_is_alive(list_team) {
+    console.log("--------------------------- Display if team are alive ---------------------------");
+    console.table(list_team);
+
+    let team_is_alive = true;
+    let mate_death = 0;
+    let index = 0;
+
+    list_team.forEach(element => {
+        console.log(element.health_point);
+        if (element.health_point <= 0) {
+            console.log(`${element.name} is dead because of his ${element.health_point} hp`);
+            mate_death++;
+        } else{
+            console.log(`${element.name} has now  ${element.health_point} hp `);
+
+        }
+    });
+
+    if (mate_death == 3) {
+        return !team_is_alive;
+    }
+
+    return team_is_alive;
 }

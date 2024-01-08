@@ -114,13 +114,19 @@ let boss = FUNCTIONS.random_boss(INSTANCES.boss_list);
 
 function game() {
     
-    FUNCTIONS.create_character();
+    // FUNCTIONS.create_character();
 
+    console.table(INSTANCES.team_test);
     let boss_game = FUNCTIONS.random_boss(INSTANCES.boss_list);
+    console.log(boss_game.name);
+    console.table(boss_game );
+
+    let check_team_alive = FUNCTIONS.check_team_is_alive(INSTANCES.team_test);
+    console.log(check_team_alive);
 
 }
 
-// game();
+game();
  
 // console.log(INSTANCES.team);
 

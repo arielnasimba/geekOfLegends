@@ -51,6 +51,11 @@ export let WARRIOR = new CLASSES.Hero("warrior","",[],0);
 export let MAGE = new CLASSES.Hero("mage","",[],0);
 export let ARCHER = new CLASSES.Hero("archer","",[],0);
 
+export let WARRIOR_test = new CLASSES.Hero("warrior test", "ariel warrior", [], 60, 40);
+export let MAGE_test = new CLASSES.Hero("mage test","ariel mage",[],40,50 );
+export let ARCHER_test = new CLASSES.Hero("archer test","ariel archer",[],50,30 );
+export let team_test = [WARRIOR_test, MAGE_test, ARCHER_test];
+
 export let max_hp = 150;
 export let max_attack = 120;
 export let team = [WARRIOR, MAGE, ARCHER];
