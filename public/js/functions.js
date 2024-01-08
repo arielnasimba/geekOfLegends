@@ -123,6 +123,42 @@ export function check_boss_is_alive(current_boss) {
  * @returns                 : boolean true is still alive; false if boss health point below 20%
  */
 export function check_boss_under_20(current_boss) {
-    return current_boss.health_point > (current_boss.health_point * 0.2);
+    return current_boss.current_hp < (current_boss.health_point * 0.2);
 
+}
+
+/* Énigmes pour les Boss
+
+Quand un boss a 20% de points de vie, l'ordinateur posera une énigme parmi 3 possible (aléatoire).
+Le joueur aura jusque à trois tentative pour répondre correctement.
+Si il y parvient, le boss est vaincu et le joueur gagner la partie.
+Dans le cas contraire, l'équipe des héros est décimée, le joueur a perdu. */
+
+export function get_enigme(current_boss, list_enigmes) {
+    let index_enigme =  Math.floor(Math.random() * list_enigmes.length);
+    // console.log(`Your boss will be ${list_boss[index_enigme].name}`);
+    return list_enigmes[index_enigme];
+}
+/**  get enigme and check answer
+ * 
+ * @param {*} current_boss : boss to defeat if right answer
+ * @param {*} current_enigme : enigme
+ */
+export function enigme_for_boss_under20(current_boss,current_enigme){
+    console.log(`So if you answer correctly this enigme, ${current_boss.name} will be defeated !`);
+    console.log(`${current_enigme.enigme}`);
+    let rep = prompt(`What is your answer ?`);
+
+    // let cpt = 0;
+    // while (cpt <=3 || rep != current_enigme.answer) {
+    //     console.log();
+    // }
+
+    if (rep == current_enigme.answer) {
+        console.log(`${current_boss.name} will be defeated`);
+        current_boss.current_hp -= current_boss.current_hp;
+    } else{
+        console.log(`${current_boss.name} will be not defeated because of wrong answer :/ sorry!`);
+
+    }
 }

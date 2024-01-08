@@ -17,10 +17,12 @@ export class Boss {
      * @param {*} attack_power  : point of attack Boss
      * @param {*} healt_point   : health point of Boss
      */
-    constructor ( name, attack_power, health_point){
+    constructor ( name, attack_power, health_point, current_hp){
         this.name = name;
         this.attack_power = attack_power;
         this.health_point = health_point;
+        this.current_hp = current_hp;
+        
     }
 
 }
