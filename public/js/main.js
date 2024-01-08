@@ -109,7 +109,7 @@ Après avoir créer les 3 héros, l'ordinateur choisira (aléatoirement) parmi l
 
 // FUNCTIONS.random_boss(INSTANCES.boss_list);
 
-let boss = FUNCTIONS.random_boss(INSTANCES.boss_list);
+// let boss = FUNCTIONS.random_boss(INSTANCES.boss_list);
 // console.log(boss);
 
 function game() {
@@ -122,7 +122,9 @@ function game() {
     console.table(boss_game );
 
     let check_team_alive = FUNCTIONS.check_team_is_alive(INSTANCES.team_test);
-    console.log(check_team_alive);
+
+    let boss_alive = FUNCTIONS.check_boss_is_alive(boss_game);
+    console.log(`the ${boss_game.name} still alive ? : ${boss_alive}`);
 
 }
 

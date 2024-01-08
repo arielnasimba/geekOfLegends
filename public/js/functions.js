@@ -91,20 +91,16 @@ ou que les points de vie du boss soient en dessous de 20% (énigme pour les boss
  */
 export function check_team_is_alive(list_team) {
     console.log("--------------------------- Display if team are alive ---------------------------");
-    console.table(list_team);
-
+    // console.table(list_team);
     let team_is_alive = true;
     let mate_death = 0;
-    let index = 0;
 
     list_team.forEach(element => {
-        console.log(element.health_point);
         if (element.health_point <= 0) {
             console.log(`${element.name} is dead because of his ${element.health_point} hp`);
             mate_death++;
         } else{
-            console.log(`${element.name} has now  ${element.health_point} hp `);
-
+            console.log(`${element.name} has now ${element.health_point} hp `);
         }
     });
 
@@ -113,4 +109,8 @@ export function check_team_is_alive(list_team) {
     }
 
     return team_is_alive;
+}
+
+export function check_boss_is_alive(current_boss) {
+    return current_boss.health_point > 0;
 }
