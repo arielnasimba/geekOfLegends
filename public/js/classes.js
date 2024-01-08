@@ -25,6 +25,28 @@ export class Boss {
 
 }
 
+//! DONE
+/********************************************************************/
+
+/* Création des Héros
+ 
+
+Créez 3 héros : un guerrier, un mage, et un archer.
+Chaque héros a un nom, une posture de combat,  des points d'attaque ainsi que des points de vie 
+les points d'attaques représente le nombre de dégâts  qu'il infligera aux point de vie du boss à chaque attaque. 
+les points de vie représente la santé du héro. si elle tombe à 0, le héro est mort.
+la posture de combat peut valoir soit “attaque” , soit “défense” 
+un héro qui attaque alors que sa posture de combat est en “attaque” infligera 20% plus de dégât au boss.
+un héro qui se fait attaquer par le boss alors que sa posture de combat est en “défense” subira que la moitié des dégâts 
+ */ 
+
+export class Hero extends Boss{
+    constructor (name,attack_position ,attack_power ,healt_point){
+
+        super(name, attack_power, healt_point);
+        this.attack_position = attack_position;
+    }
+}
 
 // export class Patient {
 //     /**     Create a object Patient

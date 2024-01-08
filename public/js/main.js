@@ -31,9 +31,12 @@ les points de vie représente la santé du boss. si elle tombe à 0, le boss meu
 Les points d'attaque et les points de vie de chaque Boss sont différents et a votre bon vouloir.
  */ 
 
-console.log(INSTANCES.SAURON);
-console.log(INSTANCES.CHRONOS);
-console.log(INSTANCES.LILITH);
+// console.log(INSTANCES.SAURON);
+// console.log(INSTANCES.CHRONOS);
+// console.log(INSTANCES.LILITH);
+
+//! DONE
+/********************************************************************/
 
 
 /* Création des Héros
