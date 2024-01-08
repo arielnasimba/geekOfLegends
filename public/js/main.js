@@ -1,3 +1,5 @@
+import * as INSTANCES from "./instances.js"
+
 // GeekOfLegends
  
 
@@ -28,6 +30,11 @@ les points d'attaques représente le nombre de dégâts  qu'il infligera aux poi
 les points de vie représente la santé du boss. si elle tombe à 0, le boss meurt. Pour rappel le but du jeu est de réduire ces point de vie à 0.
 Les points d'attaque et les points de vie de chaque Boss sont différents et a votre bon vouloir.
  */ 
+
+console.log(INSTANCES.SAURON);
+console.log(INSTANCES.CHRONOS);
+console.log(INSTANCES.LILITH);
+
 
 /* Création des Héros
  
