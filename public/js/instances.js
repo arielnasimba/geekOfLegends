@@ -44,9 +44,14 @@ Les attaques coûtent 2 flèches.
 Si L'archer ne possède pas assez de flèche lorsque il doit attaquer, il récupère 6 flèches au lieu d'infliger des dégâts.
  */ 
 
-export let WARRIOR = new CLASSES.Hero("warrior", ["rage"], 1, 50 );
-export let MAGE = new CLASSES.Hero("mage", ["mana"], 7 , 70);
-export let ARCHER = new CLASSES.Hero("archer", ["arrows"], 1, 60 );
+export let Postures = ["attack", "defense"];
+export let WARRIOR = new CLASSES.Hero("warrior","",[],0);
+export let MAGE = new CLASSES.Hero("mage","",[],0);
+export let ARCHER = new CLASSES.Hero("archer","",[],0);
 
+
+export let max_hp = 150;
+export let max_attack = 120;
+export let team = [WARRIOR, MAGE, ARCHER];
 //! DONE
 /********************************************************************/

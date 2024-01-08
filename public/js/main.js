@@ -1,5 +1,5 @@
 import * as INSTANCES from "./instances.js"
-
+import * as FUNCTIONS from "./functions.js"
 // GeekOfLegends
  
 
@@ -106,7 +106,16 @@ notez qu'il faut pouvoir répartir de tel sorte à ce que chaque héros est au m
 
 Après avoir créer les 3 héros, l'ordinateur choisira (aléatoirement) parmi les 3 boss crées lequel sera dans le combat.
  */
+
+function game() {
+    
+    FUNCTIONS.create_character();
+
+}
+
+game();
  
+// console.log(INSTANCES.team);
 
 /* Combat
  
