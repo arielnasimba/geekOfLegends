@@ -112,7 +112,42 @@ Après avoir créer les 3 héros, l'ordinateur choisira (aléatoirement) parmi l
 // let boss = FUNCTIONS.random_boss(INSTANCES.boss_list);
 // console.log(boss);
 
+console.log(INSTANCES.WARRIOR_test );
+console.log(INSTANCES.MAGE_test );
+console.log(INSTANCES.ARCHER_test );
+
+/*********************** true game */
 function game() {
+    
+    FUNCTIONS.create_character();
+    console.table(INSTANCES.team);
+
+    let boss_game = FUNCTIONS.random_boss(INSTANCES.boss_list);
+    console.table(boss_game );
+
+    //check if boss current is still alive
+    let check_team_alive = FUNCTIONS.check_team_is_alive(INSTANCES.team);
+    let boss_alive = FUNCTIONS.check_boss_is_alive(boss_game);
+    console.log(`the ${boss_game.name} still alive ? : ${boss_alive}`);
+
+    //check if boss current hp under 20% of his max hp
+    let boss_20 = FUNCTIONS.check_boss_under_20(boss_game);
+    console.log(` the current hp of ${boss_game.name} is : ${boss_game.current_hp} hp`);
+    console.log(`the ${boss_game.name} under 20 % of his hp max? : ${boss_20}`);
+
+    //enigme to defeat current boss
+    let current_enigme = FUNCTIONS.get_enigme(boss_game, INSTANCES.enigmes);
+    // FUNCTIONS.enigme_for_boss_under20(boss_game, current_enigme);
+    // console.log(current_enigme.enigme);
+
+}
+
+// game();
+
+//**************************************************/
+
+// test 
+function game2() {
     
     // FUNCTIONS.create_character();
 
@@ -138,7 +173,7 @@ function game() {
 
 }
 
-game();
+// game2();
  
 // console.log(INSTANCES.team);
 

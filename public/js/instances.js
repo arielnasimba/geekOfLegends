@@ -47,13 +47,13 @@ Si L'archer ne possède pas assez de flèche lorsque il doit attaquer, il récup
  */ 
 
 export let Postures = ["attack", "defense"];
-export let WARRIOR = new CLASSES.Hero("warrior","",[],0);
-export let MAGE = new CLASSES.Hero("mage","",[],0);
-export let ARCHER = new CLASSES.Hero("archer","",[],0);
+export let WARRIOR = new CLASSES.Hero("warrior","",[],0,["rage", 0],1 );
+export let MAGE = new CLASSES.Hero("mage","",[],0,["mana", 7],1);
+export let ARCHER = new CLASSES.Hero("archer","",[],0,["arrows", 6],1);
 
-export let WARRIOR_test = new CLASSES.Hero("warrior test", "ariel warrior", [], 60, 40);
-export let MAGE_test = new CLASSES.Hero("mage test","ariel mage",[],40,50 );
-export let ARCHER_test = new CLASSES.Hero("archer test","ariel archer",[],50,30 );
+export let WARRIOR_test = new CLASSES.Hero("warrior test", "ariel warrior", [], 60,["rage", 0],40);
+export let MAGE_test = new CLASSES.Hero("mage test","ariel mage",[],40,["mana", 7],50 );
+export let ARCHER_test = new CLASSES.Hero("archer test","ariel archer",[],50,["arrows", 6],30 );
 export let team_test = [WARRIOR_test, MAGE_test, ARCHER_test];
 
 export let max_hp = 150;

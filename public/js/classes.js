@@ -43,11 +43,16 @@ un héro qui se fait attaquer par le boss alors que sa posture de combat est en 
  */ 
 
 export class Hero extends Boss{
-    constructor (id_name, name,attack_position ,attack_power ,health_point){
+    constructor (id_name, name,attack_position ,attack_power, speciality ,health_point){
 
         super(name, attack_power, health_point);
         this.id_name = id_name;
         this.attack_position = attack_position;
+        this.speciality = speciality;
+
+        // this.attack(current_boss) = {
+
+        // }
     }
 }
 

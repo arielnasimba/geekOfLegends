@@ -38,11 +38,26 @@ export function random_boss(list_boss) {
 }
 
 
+/**     check if input available and between a range of number
+ * 
+ * @param {*} input  : input to check 
+ * @param {*} nb_max : max value of range
+ * @param {*} nb_min : min value of range
+ * @returns          : input available
+ */
+export function check_input_available(input, nb_max, nb_min) {
 
+    while (input != Number || input.length <= 0 || ( input <= nb_min && input > nb_max  ) ) {
+         
+        console.log(`Your input ${input} is unavailable `);
+        input = prompt(`Please enter a available input, your input has to be between ${nb_min} and ${nb_max}`);
+    }
+    return input;
+}
 
 export function create_character() {
     alert("Now, your are going to create all your team ! :) ");
-    console.log("Don't forget that you can put " + INSTANCES.max_hp + "health for all your team !");
+    console.log("Don't forget that you can put " + INSTANCES.max_hp + "health for all your team !\nBy default, each mate has minimum 1 hp");
     console.log(`Don't forget that you can put  ${INSTANCES.max_attack} + attack for all your team !`);
 
     let name_team_mate = "";
@@ -51,33 +66,51 @@ export function create_character() {
     let attack_team_mate = "";
     let max_of_attack = INSTANCES.max_attack;
     let max_of_health = INSTANCES.max_hp;
-    INSTANCES.team.forEach(element => {
+    INSTANCES.team.forEach( (element, i) => {
+
+
+        
+        if (i == INSTANCES.team.length -1 ) {
+            element.health_point += max_of_health;
+
+            alert(`your ${element.id_name} will have ${element.health_point} hp`);
+
+            element.attack_power += max_of_attack;
+            alert(`your ${element.id_name} will have ${element.attack_power} attack power`);
+
+
+        } else{
+
         // choice of name of team mate
         name_team_mate = prompt(`Enter name of your ${element.id_name}`);
         element.name = name_team_mate;
         console.log(`The name of your ${element.id_name} is ${element.name}`);
-        element.name = "";
+        // element.name = "";
 
         // choice posture of team mate
         posture_team_mate = prompt(`Choose your posture between ${INSTANCES.Postures[0]} and ${INSTANCES.Postures[1]}`);
         element.attack_position.push(posture_team_mate);
-        console.log(`You ${element.id_name} is on ${element.attack_position} mode`);
+        console.log(`Your ${element.id_name} is on ${element.attack_position} mode`);
 
         // choice health of team mate
-        health_team_mate = prompt(`You have ${max_of_health} point of health max to give to your ${element.id_name}, \nhow many hp do you to give to him ?`);
-        element.healt_point = health_team_mate;
-        console.log(`You ${element.id_name} has ${element.healt_point} hp`);
+        health_team_mate = +prompt(`You have ${max_of_health-3} point of health max to give to your ${element.id_name}, \nhow many hp do you to give to him ?`);
+        // health_team_mate = check_input_available(health_team_mate, max_of_health, i);
+        element.health_point += health_team_mate;
+        console.log(`Your ${element.id_name} has ${element.health_point} hp`);
         max_of_health -= health_team_mate;
 
         // choice attack point of team mate
-        attack_team_mate = prompt(`You have ${max_of_attack} point of attack max to give to your ${element.id_name}, \nhow many attack power do you to give to him ?`);
+        attack_team_mate = +prompt(`You have ${max_of_attack} point of attack max to give to your ${element.id_name}, \nhow many attack power do you to give to him ?`);
+        // attack_team_mate = check_input_available(attack_team_mate, max_of_attack, i);
         element.attack_power = attack_team_mate;
         max_of_attack -= attack_team_mate;
-        console.log(`You ${element.id_name} has ${element.attack_power} attack`);
+        console.log(`Your ${element.id_name} has ${element.attack_power} attack`);
 
+
+        }
 
     });
-    // console.table(INSTANCES.team);
+    console.log(INSTANCES.team);
 
 }
 
