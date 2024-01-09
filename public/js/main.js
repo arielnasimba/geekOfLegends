@@ -157,17 +157,40 @@ function game2() {
 
     /*** first tour ***/
 
-
-
     //check if boss current is still alive
     let check_team_alive = FUNCTIONS.check_team_is_alive(INSTANCES.team_test);
     let boss_alive = FUNCTIONS.check_boss_is_alive(boss_game);
     console.log(`the ${boss_game.name} still alive ? : ${boss_alive}`);
+    
+    while (boss_alive) {
+        
+        //team will attack current boss
+        FUNCTIONS.team_attack_boss( boss_game ,INSTANCES.team_test);
 
-    //check if boss current hp under 20% of his max hp
-    let boss_20 = FUNCTIONS.check_boss_under_20(boss_game);
-    console.log(` the current hp of ${boss_game.name} is : ${boss_game.current_hp} hp`);
-    console.log(`the ${boss_game.name} under 20 % of his hp max? : ${boss_20}`);
+        let team_remain = FUNCTIONS.getRandom_team_mate_alive_list(INSTANCES.team_test);
+
+        //boss attack randomdly one of character's user
+        team_remain = FUNCTIONS.attack_random_team_mate(team_remain, boss_game);
+
+        FUNCTIONS.check_type_team_mate_and_attack(team_remain);
+
+        console.log(team_remain);
+
+
+    
+        //check if boss current is still alive
+        boss_alive = FUNCTIONS.check_boss_is_alive(boss_game);
+        console.log(`the ${boss_game.name} still alive ? : ${boss_alive}`);
+
+    }
+
+
+
+
+    // //check if boss current hp under 20% of his max hp
+    // let boss_20 = FUNCTIONS.check_boss_under_20(boss_game);
+    // console.log(` the current hp of ${boss_game.name} is : ${boss_game.current_hp} hp`);
+    // console.log(`the ${boss_game.name} under 20 % of his hp max? : ${boss_20}`);
 
     //enigme to defeat current boss
     let current_enigme = FUNCTIONS.get_enigme(boss_game, INSTANCES.enigmes);
@@ -175,17 +198,18 @@ function game2() {
     // console.log(current_enigme.enigme);
 
 
-    //team will attack current boss
-    FUNCTIONS.team_attack_boss( boss_game ,INSTANCES.team_test);
+    // //team will attack current boss
+    // FUNCTIONS.team_attack_boss( boss_game ,INSTANCES.team_test);
 
-    let team_remain = FUNCTIONS.getRandom_team_mate_alive_list(INSTANCES.team_test);
+    // let team_remain = FUNCTIONS.getRandom_team_mate_alive_list(INSTANCES.team_test);
 
-    team_remain = FUNCTIONS.attack_random_team_mate(team_remain, boss_game);
+    // //boss attack randomdly one of character's user
+    // team_remain = FUNCTIONS.attack_random_team_mate(team_remain, boss_game);
 
-    FUNCTIONS.check_type_team_mate_and_attack(team_remain);
+    // FUNCTIONS.check_type_team_mate_and_attack(team_remain);
 
 
-    console.log(team_remain);
+    // console.log(team_remain);
 }
 
 game2();

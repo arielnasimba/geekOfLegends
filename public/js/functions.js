@@ -418,4 +418,3 @@ export function team_attack_boss(current_boss, list_team) {
     console.log("^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ End of Team's attack ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^");
 
 }
-
