@@ -22,6 +22,13 @@ export class Boss {
         this.attack_power = attack_power;
         this.health_point = health_point;
         this.current_hp = current_hp;
+
+        this.attack_to = function(character) {
+
+            console.log(`${this.name} will attack !\n Be carefull with your ${character.name} ( ${character.id_name})`);
+
+            character.health_point -= this.attack_power;
+        }
         
     }
 

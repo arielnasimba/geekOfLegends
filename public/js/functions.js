@@ -195,3 +195,42 @@ export function enigme_for_boss_under20(current_boss,current_enigme){
 
     }
 }
+
+/**     get a list of team mate alive
+ * 
+ * @param {*} list_team : team to check if alive
+ * @returns : new list of alive team mate
+ */
+export function getRandom_team_mate_alive_list(list_team) {
+    let alive_team = [];
+    list_team.forEach((element , i)=> {
+        
+        if (element.health_point > 0) {
+            alive_team.push(list_team[i]);
+        }
+    });
+    return alive_team;
+}
+
+/**    get a random team mate
+ * 
+ * @param {*} list_team : list to get a random team mate
+ * @returns             : a random team mate
+ */
+export function getRandom_team_mate(list_team) {
+    let mate_index = Math.floor(Math.random() * list_team.length);
+    return list_team[mate_index];
+}
+
+
+
+export function attack_random_team_mate(list_team, current_boss) {
+    
+    let team_alive = getRandom_team_mate_alive_list(list_team);
+    let mate = getRandom_team_mate(team_alive);
+
+    // console.log(`${current_boss.name} will attack\nBe carefull ${mate.name} :o ! `);
+
+    current_boss.attack_to(mate);
+}
+
