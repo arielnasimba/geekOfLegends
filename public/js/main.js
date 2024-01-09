@@ -112,9 +112,9 @@ Après avoir créer les 3 héros, l'ordinateur choisira (aléatoirement) parmi l
 // let boss = FUNCTIONS.random_boss(INSTANCES.boss_list);
 // console.log(boss);
 
-console.log(INSTANCES.WARRIOR_test );
-console.log(INSTANCES.MAGE_test );
-console.log(INSTANCES.ARCHER_test );
+// console.log(INSTANCES.WARRIOR_test );
+// console.log(INSTANCES.MAGE_test );
+// console.log(INSTANCES.ARCHER_test );
 
 /*********************** true game */
 function game() {
@@ -152,12 +152,12 @@ function game2() {
     
     // console.table(INSTANCES.team_test);
     let boss_game = FUNCTIONS.random_boss(INSTANCES.boss_list);
-    console.log(boss_game.name);
-    console.table(boss_game );
+    // console.log(boss_game.name);
+    console.table(boss_game);
 
-    //first tour
+    /*** first tour ***/
 
-    
+
 
     //check if boss current is still alive
     let check_team_alive = FUNCTIONS.check_team_is_alive(INSTANCES.team_test);
@@ -174,9 +174,21 @@ function game2() {
     // FUNCTIONS.enigme_for_boss_under20(boss_game, current_enigme);
     // console.log(current_enigme.enigme);
 
+
+    //team will attack current boss
+    FUNCTIONS.team_attack_boss( boss_game ,INSTANCES.team_test);
+
+    let team_remain = FUNCTIONS.getRandom_team_mate_alive_list(INSTANCES.team_test);
+
+    team_remain = FUNCTIONS.attack_random_team_mate(team_remain, boss_game);
+
+    FUNCTIONS.check_type_team_mate_and_attack(team_remain);
+
+
+    console.log( ``);
 }
 
-// game2();
+game2();
  
 // console.log(INSTANCES.team);
 
