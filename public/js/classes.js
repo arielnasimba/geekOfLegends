@@ -71,7 +71,14 @@ export class Hero extends Boss{
 
             console.log(`${this.name} has ${this.attack_power} of attack power and will attack ${current_boss.name} :-}!`);
             current_boss.current_hp -= this.attack_power;
-            console.log(`${current_boss.name} has now ${current_boss.current_hp} hp remains :} mouahaha mouahaha`);
+
+            if (current_boss.current_hp <= 0) {
+                console.log(`${current_boss.name} is dead :}  ahaha`);
+
+            } else{
+
+                console.log(`${current_boss.name} has now ${current_boss.current_hp} hp remains :} mouahaha mouahaha`);
+            }
         }
 
         this.is_defense_mode = function() {
