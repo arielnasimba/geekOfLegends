@@ -223,7 +223,11 @@ export function getRandom_team_mate(list_team) {
 }
 
 
-
+/**     boss attack randomdly one character of team's player
+ * 
+ * @param {*} list_team      : team to check
+ * @param {*} current_boss   : boss which attack character
+ */
 export function attack_random_team_mate(list_team, current_boss) {
     
     let team_alive = getRandom_team_mate_alive_list(list_team);
@@ -232,5 +236,16 @@ export function attack_random_team_mate(list_team, current_boss) {
     // console.log(`${current_boss.name} will attack\nBe carefull ${mate.name} :o ! `);
 
     current_boss.attack_to(mate);
+
+    team_alive = getRandom_team_mate_alive_list(team_alive);
+    return team_alive;
 }
 
+export function team_attack_boss(current_boss, list_team) {
+
+    list_team.forEach((element, i) => {
+        console.log(`Your ${element.id_name} ${element.name} will attack ${current_boss.name}`);
+        element.attack(current_boss);
+    });
+
+}

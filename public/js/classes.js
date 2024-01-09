@@ -24,10 +24,10 @@ export class Boss {
         this.current_hp = current_hp;
 
         this.attack_to = function(character) {
-
             console.log(`${this.name} will attack !\n Be carefull with your ${character.name} ( ${character.id_name})`);
 
             character.health_point -= this.attack_power;
+            console.log(`Your ${character.name} ( ${character.id_name} ) has now ${character.health_point} hp remains :/`);
         }
         
     }
@@ -57,9 +57,12 @@ export class Hero extends Boss{
         this.attack_position = attack_position;
         this.speciality = speciality;
 
-        // this.attack(current_boss) = {
+        this.attack = function(current_boss) {
 
-        // }
+            console.log(`${this.name} will attack ${current_boss.name} :-}!`);
+            current_boss.current_hp -= this.attack_power;
+            console.log(`${current_boss.name} has now ${current_boss.current_hp} hp remains :} mouahaha mouahaha`);
+        }
     }
 }
 

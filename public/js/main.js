@@ -150,12 +150,14 @@ function game() {
 // test 
 function game2() {
     
-    // FUNCTIONS.create_character();
-
     // console.table(INSTANCES.team_test);
     let boss_game = FUNCTIONS.random_boss(INSTANCES.boss_list);
     console.log(boss_game.name);
     console.table(boss_game );
+
+    //first tour
+
+    
 
     //check if boss current is still alive
     let check_team_alive = FUNCTIONS.check_team_is_alive(INSTANCES.team_test);
