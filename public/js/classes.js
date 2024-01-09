@@ -28,8 +28,15 @@ export class Boss {
             console.log(`${this.name} has ${this.attack_power} of power attack and will attack !\n Be carefull with your ${character.name} (${character.id_name}) he only has ${character.health_point} hp `);
 
             character.health_point -= this.attack_power;
-            console.log(`Your ${character.name} (${character.id_name}) has now ${character.health_point} hp remains :/`);
-            console.log(`---------------------------------------------------`);
+
+            if (character.health_point <= 0) {
+                console.log(`Your ${character.name} (${character.id_name}) is dead now :'{`);
+                
+            }else if (character.health_point > 0) {
+                console.log(`Your ${character.name} (${character.id_name}) has now ${character.health_point} hp remains :/`);
+                console.log(`---------------------------------------------------`);
+                
+            }
 
         }
         

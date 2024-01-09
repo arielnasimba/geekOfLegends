@@ -185,7 +185,7 @@ function game2() {
     FUNCTIONS.check_type_team_mate_and_attack(team_remain);
 
 
-    console.log( ``);
+    console.log(team_remain);
 }
 
 game2();
