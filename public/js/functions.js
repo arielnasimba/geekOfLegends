@@ -193,17 +193,26 @@ export function get_enigme(current_boss, list_enigmes) {
  */
 export function enigme_for_boss_under20(current_boss,current_enigme){
     console.log(`So if you answer correctly this enigme, ${current_boss.name} will be defeated !`);
-    console.log(`${current_enigme.enigme}`);
-    let rep = prompt(`What is your answer ?`);
+    let rep;
 
-    // let cpt = 0;
-    // while (cpt <=3 || rep != current_enigme.answer) {
-    //     console.log();
-    // }
+    let is_correct = false;
+    let chances = 3;
 
-    if (rep == current_enigme.answer) {
+    do {
+        rep= prompt(`${current_enigme.enigme}\nYou have ${chances} chances\nWhat is your answer ?`);
+        chances--;
+        if (rep == current_enigme.answer) {
+            is_correct = true;
+
+        }
+        
+    } while ( ( !is_correct ) && ( chances > 0 ));
+
+    if (is_correct) {
         console.log(`${current_boss.name} will be defeated`);
         current_boss.current_hp -= current_boss.current_hp;
+        console.log(`${current_boss.name} has ${current_boss.current_hp} hp`);
+
     } else{
         console.log(`${current_boss.name} will be not defeated because of wrong answer :/ sorry!`);
 

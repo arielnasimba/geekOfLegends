@@ -4,7 +4,7 @@ import * as CLASSES from "./classes.js"
 
 export let SAURON = new CLASSES.Boss("Sauron", 12, 100,100);
 export let CHRONOS = new CLASSES.Boss("Chronos", 15, 100,100);
-export let LILITH = new CLASSES.Boss("Lilith", 8, 100,100);
+export let LILITH = new CLASSES.Boss("Lilith", 8, 100,19);
 
 export let boss_list = [SAURON, CHRONOS, LILITH];
 
