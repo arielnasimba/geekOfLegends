@@ -24,19 +24,26 @@ export class Boss {
         this.current_hp = current_hp;
 
         this.attack_to = function(character) {
-            console.log(`--------------------- ${this.name} ---------------------`);
-            console.log(`${this.name} has ${this.attack_power} of power attack and will attack !\n Be carefull with your ${character.name} (${character.id_name}) he only has ${character.health_point} hp `);
 
-            character.health_point -= this.attack_power;
-
-            if (character.health_point <= 0) {
-                console.log(`Your ${character.name} (${character.id_name}) is dead now :'{`);
+            if (current_hp <= 0) {
+                console.log(`${this.name} can not attack because health is : ${this.current_hp} hp `);
+            } else if (current_hp > 0) {
                 
-            }else if (character.health_point > 0) {
-                console.log(`Your ${character.name} (${character.id_name}) has now ${character.health_point} hp remains :/`);
-                console.log(`---------------------------------------------------`);
-                
+                console.log(`--------------------- ${this.name} ---------------------`);
+                console.log(`${this.name} has ${this.attack_power} of power attack and will attack !\n Be carefull with your ${character.name} (${character.id_name}) he only has ${character.health_point} hp `);
+    
+                character.health_point -= this.attack_power;
+    
+                if (character.health_point <= 0) {
+                    console.log(`Your ${character.name} (${character.id_name}) is dead now :'{`);
+                    
+                }else if (character.health_point > 0) {
+                    console.log(`Your ${character.name} (${character.id_name}) has now ${character.health_point} hp remains :/`);
+                    console.log(`---------------------------------------------------`);
+                    
+                }
             }
+
 
         }
         

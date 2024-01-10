@@ -159,10 +159,11 @@ function game2() {
 
     //check if boss current is still alive
     let check_team_alive = FUNCTIONS.check_team_is_alive(INSTANCES.team_test);
+    console.log(check_team_alive);
     let boss_alive = FUNCTIONS.check_boss_is_alive(boss_game);
     console.log(`the ${boss_game.name} still alive ? : ${boss_alive}`);
     
-    while (boss_alive) {
+    while (boss_alive  ) {
         
         //team will attack current boss
         FUNCTIONS.team_attack_boss( boss_game ,INSTANCES.team_test);
@@ -175,6 +176,10 @@ function game2() {
         FUNCTIONS.check_type_team_mate_and_attack(team_remain);
 
         console.log(team_remain);
+
+        // it's work, don't forget to put in while loop
+        check_team_alive = FUNCTIONS.check_team_is_alive(team_remain);
+        console.log(`team is alive ? : ${check_team_alive}`);
 
 
     
@@ -212,9 +217,10 @@ function game2() {
     // console.log(team_remain);
 }
 
-game2();
+// game2();
  
 // console.log(INSTANCES.team);
+
 
 /* Combat
  

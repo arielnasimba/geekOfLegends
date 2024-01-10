@@ -295,43 +295,53 @@ export function check_type_team_mate_and_attack(mate,current_boss){
 
                 pos_attack = ask_attack_position(mate, INSTANCES.Postures);
 
-                if (mate.attack_position == "attack" ) {
+                if (current_boss.current_hp <=0 ) {
+                    
+                    console.log(`${current_boss.name} is dead ahahhahahaha`);
 
-                    if (mate.speciality[1] >= 4) {
-                        current_power =mate.attack_power;
-                        console.log(`${mate.name} the ${mate.id_name} had ${mate.attack_power} attack power `);
-    
-                        mate.attack_power *=1.2;                        
-                        console.log(`${mate.name} the ${mate.id_name} has now  ${mate.attack_power} attack power`);
+                } else if (current_boss.current_hp > 0 ) {
+                    
 
-                        mate.attack_power *=1.25;
-                        console.log(`${mate.name} the ${mate.id_name} has increased now his attack power by 25% => attack power : ${mate.attack_power} $:) `);
-
+                    if (mate.attack_position == "attack" ) {
     
-                        mate.attack(current_boss);
-                        mate.attack_power = current_power;
-                        mate.speciality[1] = 0;
-                        
-                    } else if (mate.speciality[1] < 4) {
-                        
-                        current_power =mate.attack_power;
-                        console.log(`${mate.name} the ${mate.id_name} had ${mate.attack_power} attack power `);
+                        if (mate.speciality[1] >= 4) {
+                            current_power =mate.attack_power;
+                            console.log(`${mate.name} the ${mate.id_name} had ${mate.attack_power} attack power `);
+        
+                            mate.attack_power *=1.2;                        
+                            console.log(`${mate.name} the ${mate.id_name} has now  ${mate.attack_power} attack power`);
     
-                        mate.attack_power *=1.2;
-                        console.log(`${mate.name} the ${mate.id_name} has now  ${mate.attack_power} attack power `);
+                            mate.attack_power *=1.25;
+                            console.log(`${mate.name} the ${mate.id_name} has increased now his attack power by 25% => attack power : ${mate.attack_power} $:) `);
     
-                        mate.attack(current_boss);
-                        mate.attack_power = current_power;
-
-                        mate.speciality[1]++;
-                        console.log(`Your ${mate.id_name} get one more point of rage and has now ${mate.speciality[1]} of ${mate.speciality[0]} !`);
+        
+                            mate.attack(current_boss);
+                            mate.attack_power = current_power;
+                            mate.speciality[1] = 0;
+                            
+                        } else if (mate.speciality[1] < 4) {
+                            
+                            current_power =mate.attack_power;
+                            console.log(`${mate.name} the ${mate.id_name} had ${mate.attack_power} attack power `);
+        
+                            mate.attack_power *=1.2;
+                            console.log(`${mate.name} the ${mate.id_name} has now  ${mate.attack_power} attack power `);
+        
+                            mate.attack(current_boss);
+                            mate.attack_power = current_power;
+    
+                            mate.speciality[1]++;
+                            console.log(`Your ${mate.id_name} get one more point of rage and has now ${mate.speciality[1]} of ${mate.speciality[0]} !`);
+                        }
+    
+            
+                    } else if( mate.attack_position == "defense") {
+    
+                        mate.is_defense_mode();
                     }
 
-        
-                } else if( mate.attack_position == "defense") {
-
-                    mate.is_defense_mode();
                 }
+
                 
     
                 break;
@@ -340,32 +350,42 @@ export function check_type_team_mate_and_attack(mate,current_boss){
                 alert(`If you want to attack with your ${mate.id_name}, it will cost you 2 mana !`);
                 pos_attack = ask_attack_position(mate, INSTANCES.Postures);
 
-                
-                if (mate.attack_position == "attack") {
+                if (current_boss.current_hp <=0 ) {
+                    
+                    console.log(`${current_boss.name} is dead ahahhahahaha`);
 
-                    if (mate.speciality[1] == 0) {
-                        console.log(`Your ${mate.name} the ${mate.id_name} can not attack because he has only ${mate.speciality[1]} mana :/`);
-                        mate.speciality[1] = 7;
-                        console.log(`Your ${mate.id_name} has now ${mate.speciality[1]} mana !`);
+                } else if (current_boss.current_hp > 0 ){
 
-                    } else if (mate.speciality[1] > 0) {
-                        
-                        current_power =mate.attack_power;
-                        console.log(`${mate.name} the ${mate.id_name} had ${mate.attack_power} attack power `);
+
+                    if (mate.attack_position == "attack") {
     
-                        mate.attack_power *=1.2;
-                        console.log(`${mate.name} the ${mate.id_name} has now  ${mate.attack_power} attack power `);
+                        if (mate.speciality[1] == 0) {
+                            console.log(`Your ${mate.name} the ${mate.id_name} can not attack because he has only ${mate.speciality[1]} mana :/`);
+                            mate.speciality[1] = 7;
+                            console.log(`Your ${mate.id_name} has now ${mate.speciality[1]} mana !`);
     
-                        mate.attack(current_boss);
-                        mate.attack_power = current_power;
+                        } else if (mate.speciality[1] > 0) {
+                            
+                            current_power =mate.attack_power;
+                            console.log(`${mate.name} the ${mate.id_name} had ${mate.attack_power} attack power `);
+        
+                            mate.attack_power *=1.2;
+                            console.log(`${mate.name} the ${mate.id_name} has now  ${mate.attack_power} attack power `);
+        
+                            mate.attack(current_boss);
+                            mate.attack_power = current_power;
+        
+                            mate.speciality[1] -= 2;
+                            console.log(`Your ${mate.id_name} has now ${mate.speciality[1]} mana !`);
+                        }
+                    } else if( mate.attack_position == "defense") {
     
-                        mate.speciality[1] -= 2;
-                        console.log(`Your ${mate.id_name} has now ${mate.speciality[1]} mana !`);
+                        mate.is_defense_mode();
                     }
-                } else if( mate.attack_position == "defense") {
 
-                    mate.is_defense_mode();
                 }
+                
+
     
                 
                 break;
@@ -374,32 +394,42 @@ export function check_type_team_mate_and_attack(mate,current_boss){
                 alert(`If you want to attack with your ${mate.id_name}, it will cost you 2 arrows !`);
                 pos_attack = ask_attack_position(mate, INSTANCES.Postures);
 
-    
-                if (mate.attack_position == "attack") {
 
-                    if (mate.speciality[1] == 0) {
-                        console.log(`Your ${mate.name} the ${mate.id_name} can not attack because he has only ${mate.speciality[1]} arrows :/`);
-                        mate.speciality[1] = 6;
-                        console.log(`Your ${mate.id_name} has now ${mate.speciality[1]} arrows !`);
-                    } else if (mate.speciality[1] > 0) {
-                        
-                        current_power =mate.attack_power;
-                        console.log(`${mate.name} the ${mate.id_name} had ${mate.attack_power} attack power `);
-    
-                        mate.attack_power *=1.2;
-                        console.log(`${mate.name} the ${mate.id_name} has now  ${mate.attack_power} attack power `);
-    
-                        mate.attack(current_boss);
-                        mate.attack_power = current_power;
-    
-                        mate.speciality[1] -= 2;
-                        console.log(`Your ${mate.id_name} has now ${mate.speciality[1]} arrows !`);
-                    }
+                if (current_boss.current_hp <=0 ) {
                     
-                } else if( mate.attack_position == "defense")  {
+                    console.log(`${current_boss.name} is dead ahahhahahaha`);
 
-                    mate.is_defense_mode();
-                }    
+                } else if (current_boss.current_hp > 0 ) {
+
+
+                    if (mate.attack_position == "attack") {
+    
+                        if (mate.speciality[1] == 0) {
+                            console.log(`Your ${mate.name} the ${mate.id_name} can not attack because he has only ${mate.speciality[1]} arrows :/`);
+                            mate.speciality[1] = 6;
+                            console.log(`Your ${mate.id_name} has now ${mate.speciality[1]} arrows !`);
+                        } else if (mate.speciality[1] > 0) {
+                            
+                            current_power =mate.attack_power;
+                            console.log(`${mate.name} the ${mate.id_name} had ${mate.attack_power} attack power `);
+        
+                            mate.attack_power *=1.2;
+                            console.log(`${mate.name} the ${mate.id_name} has now  ${mate.attack_power} attack power `);
+        
+                            mate.attack(current_boss);
+                            mate.attack_power = current_power;
+        
+                            mate.speciality[1] -= 2;
+                            console.log(`Your ${mate.id_name} has now ${mate.speciality[1]} arrows !`);
+                        }
+                        
+                    } else if( mate.attack_position == "defense")  {
+    
+                        mate.is_defense_mode();
+                    }    
+
+                }
+    
                 break;
         }
 
@@ -417,4 +447,16 @@ export function team_attack_boss(current_boss, list_team) {
     console.log("\n");
     console.log("^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ End of Team's attack ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^");
 
+}
+
+/**                 destroy team
+ * 
+ * @param {*} list_team : team to clear 
+ * @returns             : empty array
+ */
+export function destroy_all_team(list_team){
+    list_team = [];
+    console.log(`End Of the game, your team was completely destroyed : character remaining = > 0 :{`);
+
+    return list_team;
 }
