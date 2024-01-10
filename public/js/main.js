@@ -140,7 +140,6 @@ function game() {
     // FUNCTIONS.enigme_for_boss_under20(boss_game, current_enigme);
     // console.log(current_enigme.enigme);
 
-    
 
 }
 
