@@ -151,7 +151,7 @@ export function check_team_is_alive(list_team) {
         }
     });
 
-    if (mate_death == 3) {
+    if (mate_death == list_team.length) {
         return !team_is_alive;
     }
 
@@ -235,7 +235,6 @@ export function getRandom_team_mate_alive_list(list_team) {
     
     if (alive_team.length == 0) {
         console.log(`Everyone is dead sorry :{`);
-        return -1;
     }
     return alive_team;
 }
@@ -256,11 +255,15 @@ export function getRandom_team_mate(list_team) {
  * @param {*} list_team      : team to check
  * @param {*} current_boss   : boss which attack character
  */
-export function attack_random_team_mate(list_team, current_boss) {
+export function attack_random_team_mate(list_team, current_boss, list_enigme) {
     
     let team_alive = getRandom_team_mate_alive_list(list_team);
     let mate = getRandom_team_mate(team_alive);
     let current_attack_power;
+    
+
+    let boss_under_20 = check_boss_under_20(current_boss);
+    if (!boss_under_20 ) {
 
 
     if (mate.attack_position == "defense") {
@@ -276,6 +279,29 @@ export function attack_random_team_mate(list_team, current_boss) {
     } else if (mate.attack_position == "attack"){
         current_boss.attack_to(mate);
     }
+
+    } else{
+        
+        console.log(`sorry Boss can't attack because his hp is : ${current_boss.current_hp}`);
+            //check if boss under 20 for enigme moment
+    if (boss_under_20) {
+        console.log(`This a crucial moment !!`);
+           //enigme to defeat current boss
+            let current_enigme = get_enigme(current_boss, list_enigme);
+            enigme_for_boss_under20(current_boss, current_enigme);
+    
+            if (current_boss.current_hp > 0) {
+                console.log(`You couldn't kill the boss, ${current_boss.name } will kill your team >:}`);
+                FUNCTIONS.destroy_all_team(list_team);
+            }
+    } else{
+
+        console.log(`End of the game`);
+    }
+    }
+
+
+
 
     team_alive = getRandom_team_mate_alive_list(team_alive);
     return team_alive;

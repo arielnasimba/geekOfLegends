@@ -159,12 +159,12 @@ function game2() {
 
     //check if boss current is still alive
     let check_team_alive = FUNCTIONS.check_team_is_alive(INSTANCES.team_test);
-    console.log(check_team_alive);
+    // console.log(check_team_alive);
     let boss_alive = FUNCTIONS.check_boss_is_alive(boss_game);
     console.log(`the ${boss_game.name} still alive ? : ${boss_alive}`);
     let boss_20 = FUNCTIONS.check_boss_under_20(boss_game);
 
-    while (boss_alive || boss_alive || !boss_20 ) {
+    while (boss_alive && check_team_alive && !boss_20 ) {
         
         //team will attack current boss
         FUNCTIONS.team_attack_boss( boss_game ,INSTANCES.team_test);
@@ -172,11 +172,10 @@ function game2() {
         let team_remain = FUNCTIONS.getRandom_team_mate_alive_list(INSTANCES.team_test);
 
         //boss attack randomdly one of character's user
-        team_remain = FUNCTIONS.attack_random_team_mate(team_remain, boss_game);
+        team_remain = FUNCTIONS.attack_random_team_mate(team_remain, boss_game,INSTANCES.enigmes);
 
         FUNCTIONS.check_type_team_mate_and_attack(team_remain);
 
-        console.log(team_remain);
 
         // it's work, don't forget to put in while loop
         check_team_alive = FUNCTIONS.check_team_is_alive(team_remain);
@@ -192,27 +191,25 @@ function game2() {
 
     }
 
-    //check if boss under 20 for enigme moment
-    if (boss_20) {
-        console.log(`This a crucial moment !!`);
-           //enigme to defeat current boss
-            let current_enigme = FUNCTIONS.get_enigme(boss_game, INSTANCES.enigmes);
-            FUNCTIONS.enigme_for_boss_under20(boss_game, current_enigme);
+    // //check if boss under 20 for enigme moment
+    // if (boss_20) {
+    //     console.log(`This a crucial moment !!`);
+    //        //enigme to defeat current boss
+    //         let current_enigme = FUNCTIONS.get_enigme(boss_game, INSTANCES.enigmes);
+    //         FUNCTIONS.enigme_for_boss_under20(boss_game, current_enigme);
     
-            if (boss_game.current_hp > 0) {
-                console.log(`You couldn't kill the boss, ${boss_game.name } will kill your team >:}`);
-                FUNCTIONS.destroy_all_team(INSTANCES.team_test);
-            }
-    } else{
-        console.log(` the current hp of ${boss_game.name} is : ${boss_game.current_hp} hp`);
-        console.log(`the ${boss_game.name} under 20 % of his hp max? : ${boss_20}`);
-        console.log(`You couldn't kill the boss, ${boss_game.name } will kill your team >:}`);
-        FUNCTIONS.destroy_all_team(INSTANCES.team_test);
-    }
+    //         if (boss_game.current_hp > 0) {
+    //             console.log(`You couldn't kill the boss, ${boss_game.name } will kill your team >:}`);
+    //             FUNCTIONS.destroy_all_team(INSTANCES.team_test);
+    //         }
+    // } else{
+
+    //     console.log(`End of the game`);
+    // }
 
 }
 
-// game2();
+game2();
 
 /* Combat
 
