@@ -138,9 +138,9 @@ function game() {
     while (boss_alive && check_team_alive && !boss_20 ) {
         
         //team will attack current boss
-        FUNCTIONS.team_attack_boss( boss_game ,INSTANCES.team_test);
+        FUNCTIONS.team_attack_boss( boss_game ,INSTANCES.team);
 
-        let team_remain = FUNCTIONS.getRandom_team_mate_alive_list(INSTANCES.team_test);
+        let team_remain = FUNCTIONS.getRandom_team_mate_alive_list(INSTANCES.team);
 
         //boss attack randomdly one of character's user
         team_remain = FUNCTIONS.attack_random_team_mate(team_remain, boss_game,INSTANCES.enigmes);
@@ -217,7 +217,7 @@ function game2() {
 
 }
 
-game2();
+// game2();
 
 /* Combat
 
